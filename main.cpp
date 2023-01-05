@@ -18,6 +18,8 @@ int main() {
     cout << "Enter max number of processing: ";
     cin >> maxProcessing;
     int numRequests = numServers * 20;
+    std::ofstream log_file;
+    log_file.open("log.txt", std::ios::app); 
 
     vector<Server> servers;
     for (int i = 1; i <= numServers; i++) {
@@ -29,6 +31,8 @@ int main() {
     {
         load.addRequest(new Request(maxProcessing));
     }
+    string log_output =  "Starting Queue Size: " + to_string(load.size());
+    log_file << log_output << std::endl;
 
     for (int i = 0; i < numClockCycles; i++) {
         //add random number generator for requests - generates number between 1 and 5. Number has 20% chance of being 1
@@ -51,6 +55,9 @@ int main() {
             }
         }
     }
+    log_output =  "Ending Queue Size: " + to_string(load.size());
+    log_file << log_output << std::endl;
+    log_file.close();
 
     return 0;
 }
