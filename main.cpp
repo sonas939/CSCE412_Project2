@@ -2,14 +2,15 @@
 #include <string>
 #include <vector>
 #include "server.cpp"
+#include <random>
 #include "loadbalancer.cpp"
 
 using namespace std;
 
 int main() {
-    int numClockCycles = 10000;
-    int numServers = 20;
-    int maxProcessing = 500;
+    int numClockCycles;
+    int numServers;
+    int maxProcessing;
     cout << "Enter number of clock cycles: ";
     cin >> numClockCycles;
     cout << "Enter number of servers: ";
@@ -30,6 +31,14 @@ int main() {
     }
 
     for (int i = 0; i < numClockCycles; i++) {
+        //add random number generator for requests - generates number between 1 and 5. Number has 20% chance of being 1
+        std::random_device rd;
+        std::mt19937 gen(rd());
+        std::uniform_int_distribution<> dis(1, 5);
+        if (dis(gen) == 1) {
+            load.addRequest(new Request(maxProcessing));
+        }
+
         for (int j = 0; j < numServers; j++) {
             if (servers.at(j).isAvailable()) {
                 if (load.isEmpty()) {
