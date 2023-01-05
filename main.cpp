@@ -1,3 +1,8 @@
+/**
+    @file main.cpp
+    @brief This file contains the driver function of load balancer.
+*/
+
 #include <iostream>
 #include <string>
 #include <vector>
