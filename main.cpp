@@ -7,6 +7,8 @@
 
 using namespace std;
 
+// The main function was written by us except for the random number generator that was used in request.cpp and documentation from ChatGPT
+
 /**
 
 @brief Main function that simulates request processing by servers
