@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "request.h"
+#include <fstream>
 using namespace std;
 
 class Server {
@@ -17,7 +18,11 @@ class Server {
             int time = request_->get_time()-1;
             request_->set_time(time);
             if (time <= 0) {
-                cout << "At " << clockCycle << " Server " << name_ << " processed request from " << request_->get_ip_in() << " to " << request_->get_ip_out() << endl;
+                std::ofstream log_file;
+                log_file.open("log.txt", std::ios::app); 
+                string log_output =  "At " + to_string(clockCycle) + " Server " + name_ + " processed request from " + request_->get_ip_in() + " to " + request_->get_ip_out();
+                log_file << log_output << std::endl;
+                log_file.close();
                 request_ = nullptr;
             }
         }
