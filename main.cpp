@@ -32,6 +32,9 @@ int main() {
         load.addRequest(new Request(maxProcessing));
     }
     string log_output =  "Starting Queue Size: " + to_string(load.size());
+    log_file << "Number of Clock Cycles: " << numClockCycles << std::endl;
+    log_file << "Number of Servers: " << numServers << std::endl;
+    log_file << "Processing Time Range: 2 to " << maxProcessing << std::endl;
     log_file << log_output << std::endl;
 
     for (int i = 0; i < numClockCycles; i++) {
