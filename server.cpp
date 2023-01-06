@@ -8,7 +8,8 @@ using namespace std;
 
 /**
 
-    @brief Server class that handles requests
+    @brief This file contains the server documentation to handle requests. Each server has a name and a request data member (nullptr if no request has been assigned). 
+    After each clock cycle, updateTime decrements the request time by 1 and sets the request to nullptr if the request has been processed.
 */
 
 class Server {
@@ -45,7 +46,7 @@ class Server {
         void setRequest(Request* request) { request_ = request; }
 
          /**
-         * @brief Updates the time remaining for the request to be completed
+         * @brief Updates the time remaining for the request to be completed and sets the request to nullptr if the request has finished processing.
          * @param clockCycle Current clock cycle as an int
          */
         void updateTime(int clockCycle) {

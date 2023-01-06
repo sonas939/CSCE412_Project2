@@ -5,7 +5,7 @@
 
 /**
 
-    @brief LoadBalancer class that manages requests to be processed
+    @brief This file adds or pops requests from the queue. 
 */
 
 class LoadBalancer {

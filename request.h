@@ -12,7 +12,8 @@
 
     /**
     @class Request
-    @brief A class representing a request made by a client.
+    @brief This file contains the declaration of the Request class, which represents a request made by a client.
+    The request data struct includes the client's and server's IP addresses, and the time at which the request was made. Two random number generators were used to generate the ip addresses and simulate the processing time.
     */
    
     class Request {
@@ -20,6 +21,7 @@
     /*
     * @struct Data
     * @brief A struct containing the data of a request.
+    * Data members include client/server IP address and the processing time
     */
     struct Data {
     std::string ip_in; /* The client's IP address. */
